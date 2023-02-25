@@ -4,9 +4,60 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Tour of DOM</title>
+    <link rel="stylesheet" href="styles/styles.css">
+    <style>
+        li{
+            color: blue;
+        }
+    </style>
 </head>
 <body>
-    
+    <header>
+        <h1>Welcome to my DOM</h1>
+    </header>
+    <main>
+        <h1>My Awesome DOM de baba</h1>
+        <ul>
+            <li>Jalali set</li>
+            <li>Shafayat</li>
+            <li>Rupok</li>
+            <li>Lubna</li>
+        </ul>
+
+        <h1>Final DOM event Handlers</h1>
+        <h3 id="handler-status">Default text</h3>
+
+        <button onclick="handleOnclick()">Handle event by onclick function</button>
+        <button id="make-goldenId">Make Golden</button>
+        <button id="make-purple">Make Purple</button>
+
+
+    </main>
+    <script src="js/dom.js"></script>
+    <script>
+        const liCollection = document.getElementsByTagName("li");
+        for(const li of liCollection){
+            // console.log(li.innerText);
+        }
+
+        // onclick
+        function handleOnclick(){
+            const handlerStatus = document.getElementById('handler-status');
+            handlerStatus.innerText = 'Handled by function attached on onclick attribute';
+        }
+
+        // addEventListener
+        document.getElementById('make-goldenId').addEventListener("click",function(){
+            document.body.style.backgroundColor = 'goldenrod';
+        })
+
+        const purpleButton = document.getElementById('make-purple');
+        purpleButton.onclick = function makePurple(){
+            document.body.style.backgroundColor= 'purple';
+        }
+
+
+    </script>
 </body>
 </html>
